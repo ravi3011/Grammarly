@@ -1,0 +1,11 @@
+.row{
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 600px;
+    height: 500px;
+    text-align: center;
+}
+#filecontent{
+    width: 500px;
+    height: 400px;
+}
