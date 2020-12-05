@@ -2,6 +2,7 @@ var MainToDoContainer = document.getElementById('mainContainer');
 var textCheck = document.querySelector('#filecontent');	
 let reader;
 let spell;
+let bad;
 function ReadFile(files){	
     let file = inputfile.files[0];	
     reader = new FileReader();	
@@ -25,7 +26,7 @@ async function getCheck(data){
 textCheck.addEventListener('contextmenu', async function(ev){
      ev.preventDefault();
      let res = await getCheck(reader.result);
-     console.log(res["response"]["errors"]["0"]["bad"]);
+     bad = res["response"]["errors"]["0"]["bad"];
      let value = res["response"]["errors"]["0"]["better"];
      addSuggestion(value);
     //  console.log(myOutput[response][errors][0]);
@@ -49,12 +50,13 @@ function addSuggestion(value){
     var btnTag = document.createElement('button');
     btnTag.classList.add('button-submit');
     btnTag.innerText = "Click here";
-    btnTag.onclick = changeText();
     MainToDoContainer.appendChild(btnTag);
+    btnTag.onclick = changeText();
 
 }
 
 function changeText(){
     var e = document.querySelector(".todo-list-container");
     console.log(e.value);
+    filecontent.value = filecontent.value.replace(bad,e.value);
 }
