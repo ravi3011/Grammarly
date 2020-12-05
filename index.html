@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Grammarly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="mainContainer">
         <div class="row">
         <input type="file" name="inputfile" id="inputfile">
         <button onclick="ReadFile()">Upload</button>
@@ -16,7 +17,9 @@
         <br>
         <textarea id="filecontent"></textarea> 
         </div>
-        
+        <div class="todo-input-container">
+
+        </div>
     </div>
     
 </body>
